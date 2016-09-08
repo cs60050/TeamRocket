@@ -1,52 +1,23 @@
-<html>
-  <head>
-    <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+---
+layout: default
+---
 
-  ga('create', 'UA-83736310-1', 'auto');
-  ga('send', 'pageview');
+<div class="home">
 
-</script>
-    <title>
-ML 2016
-</title>
-  </head>
+  <h1 class="page-heading">Posts</h1>
 
-<body>
-  <div>
-    <p>
-  <b>Machine Learning Team Rocket </b>
-     </p>
-     <div>
-      Github Repository - <a href="https://github.com/cs60050/TeamRocket">Team Rocket</a>
-     </div>
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
-Useful links -
-<br>
-<ul>
-  <li><a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/">Understanding LSTMs</a></li>
-  <li><a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/" >The Unreasonable Effectiveness of Recurrent Neural Networks</a></li>
-  <li><a href="https://www.tensorflow.org/" > Tensor Flow </a></li>
-</ul>
-  </div>
-
-
-
-<div>
-  Some relevant Papers - 
-  <ul>
-    <li><a href="http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf" >Long Short Term Memory (Original Paper)</a></li>
-    <li><a href="http://arxiv.org/pdf/1308.0850.pdf" >Generating Sequences With Recurrent Neural Networks</a></li>
-    <li>
-      Why LSTM? <br/>
-      In theory, RNNs are absolutely capable of handling such “long-term dependencies.” A human could carefully pick parameters for them to solve toy problems of this form. Sadly, in practice, RNNs don’t seem to be able to learn them.
-
-Thankfully, LSTMs don’t have this problem!<br/><a href="http://www-dsi.ing.unifi.it/~paolo/ps/tnn-94-gradient.pdf">Learning Long Term Dependencies With Gradient Descent is Difficult</a></li>
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+        </h2>
+      </li>
+    {% endfor %}
   </ul>
-</div>
 
-</body>
-</html>
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
